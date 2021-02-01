@@ -1,0 +1,15 @@
+package utilities;
+
+import FileProcesor.Delivery;
+import FileProcesor.IDelivery;
+
+public class SuCorrientazoUtilities {
+	
+	public SuCorrientazoUtilities(){}
+    
+    public static void cargar(){
+        IDelivery delivery = new Delivery();
+        delivery.obtenerArchivos();
+    }
+
+}

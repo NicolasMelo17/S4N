@@ -1,0 +1,11 @@
+package utilities;
+
+public class Config {
+	
+	public static String DELIVERY_DIRECTORY = "../deliveries";
+	public static String REPORT_DIRECTORY = "../reports";
+	public static int DRONES = 20;
+	public static int STREETS = 10;
+	public static int MAX_DRONE_DELIVERIES = 3;
+
+}

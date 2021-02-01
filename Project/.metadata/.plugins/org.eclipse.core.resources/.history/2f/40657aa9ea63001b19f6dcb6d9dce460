@@ -1,0 +1,68 @@
+package sucorrientazo.deliveries;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import sucorrientazo.delivery.Delivery;
+import sucorrientazo.movements.Movement;
+import utilities.Config;
+import utilities.FileUtilities;
+import utilities.Messages;
+
+public class Deliveries implements IDeliveries{
+	
+public List<Delivery> getDeliveries() {
+		
+		List<String> files;
+		List<String> lines;
+		List<Delivery> droneMoves = new ArrayList<Delivery>();
+		Delivery deliver;
+		
+		FileUtilities fileUtilities = new FileUtilities();
+        files = fileUtilities.getInputFiles();
+        for(String file : files) {
+        	lines = fileUtilities.obtainLines(file);
+        	if(lines.size()>Config.MAX_DRONE_DELIVERIES) {
+        		System.out.println(Messages.MAX_DELIVERY);
+        		return null;
+        	}
+        	for(String line : lines) {
+        		deliver = new Delivery(obtainMoves(line), obtainID(file));
+        		droneMoves.add(deliver);
+        	}
+        	
+        }
+        
+        return droneMoves;
+	}
+	
+	public String obtainID(String name) {
+		 
+		String id= name.replaceAll("[^0-9]", "");
+		return id;
+	}
+	
+	public List<Movement> obtainMoves(String line){
+
+		List<Movement> moves = new ArrayList<Movement>();
+		for (int i = 0; i < line.length(); i++) { 
+			
+			switch(line.charAt(i)) {
+			case 'A':
+				moves.add(Movement.A);
+				break;
+			case 'I':
+				moves.add(Movement.I);
+				break;
+			case 'D':
+				moves.add(Movement.D);
+				break;
+			default:
+				System.out.println(Messages.MOVEMENT_INVALID);
+				return null;
+			}
+        } 
+		return moves;
+	}
+
+}

@@ -1,0 +1,48 @@
+package utilities;
+
+import java.io.File;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class FileUtilities {
+	
+	public List<String> getInputFiles(){
+		
+		File directory = new File(Config.DELIVERY_DIRECTORY);
+        String[] inputFiles = directory.list();
+        List<String> files = null;
+        
+        if (inputFiles == null || inputFiles.length == 0) {
+            System.out.println(Mesagges.NO_INPUT_FILES);
+            return null;
+        
+        }else {
+        	
+            for (int i=0; i< inputFiles.length; i++) {
+                System.out.println(inputFiles[i]);
+                if(validateName(inputFiles[i])) {
+                	files.add(inputFiles[i]);
+                }
+                
+            }
+            if(files =) {
+            	System.out.println(Mesagges.NO_INPUT_FILES);
+                return null;
+            }
+        }
+        return files;
+	}
+	
+	public boolean validateName(String name) {
+		
+		Pattern p = Pattern.compile("in+(\\d){2}(.txt)");
+		Matcher m = p.matcher(name);
+		if(m.matches()) {
+			System.out.println("valido");
+			return true;
+		}
+		return false;
+	}
+
+}

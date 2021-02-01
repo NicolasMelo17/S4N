@@ -1,0 +1,7 @@
+package sucorrientazo.corrientazo.positions;
+
+import junit.framework.TestCase;
+
+public class Positions extends TestCase {
+
+}

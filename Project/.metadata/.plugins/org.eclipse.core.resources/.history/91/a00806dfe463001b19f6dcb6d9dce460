@@ -1,0 +1,68 @@
+package sucorrientazo.deliveries;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import sucorrientazo.movements.Movement;
+import utilities.Config;
+import utilities.FileUtilities;
+import utilities.Messages;
+
+public class Delivery implements IDelivery{
+	
+	public Map<String, List<Movement>> getDeliveries() {
+		
+		List<String> files;
+		List<String> lines;
+		Map<String, List<Movement[]>> droneMoves = new HashMap();
+		FileUtilities fileUtilities = new FileUtilities();
+        files = fileUtilities.getInputFiles();
+        for(String file : files) {
+        	lines = fileUtilities.obtainLines(file);
+        	if(lines.size()>Config.MAX_DRONE_DELIVERIES) {
+        		System.out.println(Messages.MAX_DELIVERY);
+        		return null;
+        	}
+        	for(String line : lines) {
+        		droneMoves.put(obtainID(file), obtainMoves(line));
+        	}
+        }
+        for (Map.Entry<String, List<Movement[]>> pair : droneMoves.entrySet()) {
+            
+            System.out.println(pair.getKey()+" "+pair.getValue().toString());
+        }
+        return null;
+	}
+	
+	public String obtainID(String name) {
+		 
+		String id= name.replaceAll("[^0-9]", "");
+		return id;
+	}
+	
+	public Movement[] obtainMoves(String line){
+		
+		Movement[] moves = new Movement[line.length()];
+		for (int i = 0; i < line.length(); i++) { 
+			
+			switch(line.charAt(i)) {
+			case 'A':
+				moves[i]=Movement.A;
+				break;
+			case 'I':
+				moves[i]=Movement.I;
+				break;
+			case 'D':
+				moves[i]=Movement.D;
+				break;
+			default:
+				System.out.println(Messages.MOVEMENT_INVALID);
+				return null;
+			}
+        } 
+		return moves;
+	}
+	
+}

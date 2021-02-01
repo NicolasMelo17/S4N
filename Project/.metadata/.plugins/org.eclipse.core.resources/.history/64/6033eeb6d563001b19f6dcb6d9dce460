@@ -1,0 +1,7 @@
+package utilities;
+
+public class Mesagges {
+	
+	public static String NO_INPUT_FILES = "No hay archivos en la carpeta";
+	public static String DRONES_MAX_NUM = "Existe una mayor cantidad de ";
+}

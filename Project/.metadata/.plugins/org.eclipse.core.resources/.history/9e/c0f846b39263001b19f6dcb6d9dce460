@@ -1,0 +1,7 @@
+package sucorrientazo.deliveries;
+
+public interface IDelivery {
+	
+	public void getDeliveries();
+
+}

@@ -1,0 +1,3 @@
+package sucorrientazo.movements;
+
+public enum Movement {A, I, D;}

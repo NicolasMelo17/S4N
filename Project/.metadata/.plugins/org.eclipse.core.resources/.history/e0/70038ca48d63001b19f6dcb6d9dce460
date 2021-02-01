@@ -1,0 +1,7 @@
+package sucorrientazo.fileprocesor;
+
+public interface IDelivery {
+	
+	public void getDeliveries();
+
+}

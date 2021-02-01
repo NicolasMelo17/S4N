@@ -1,0 +1,59 @@
+package sucorrientazo.positions;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import sucorrientazo.delivery.Delivery;
+import sucorrientazo.movement.Movement;
+import sucorrientazo.position.Position;
+import utilities.Config;
+
+public class Positions implements IPositions {
+	
+	public Map<String, List<Position>> updatePosition(Map<String, List<Delivery>> deliveries) {
+		List<String> positions;
+		List<Position> poss;
+		Position position;
+		Map<String, List<Position>> dronesPosition = new HashMap<String, List<Position>>();
+		for (Map.Entry<String, List<Delivery>> delivery : deliveries.entrySet()) {
+			
+			positions = new ArrayList<String>();
+			poss = new ArrayList<Position>();
+			position = new Position();
+			int idx = 0;
+			for(Delivery del:delivery.getValue()) {
+				for(Movement move : del.getMovements()) {
+					position = adjustPosition(move, position);
+				}
+				positions.add(position.toString());
+				poss.add(position);
+				idx+=1;
+				System.out.println("----------------------------------");
+				for(String pos: positions) {
+					System.out.println("AAAA"+pos.toString());
+				}
+			}
+			
+		    dronesPosition.put(delivery.getKey(), poss);	
+		}
+		
+		return dronesPosition;
+	}
+	
+	public Position adjustPosition(Movement move, Position position){
+		switch(move) {
+			case A:
+				position.advance();
+				break;
+			case D:
+				position = new Position(position.getX(), position.getY(), position.toRight());
+				break;
+			case I:
+				position = new Position(position.getX(), position.getY(), position.toLeft());
+				break;
+		}
+		return position;
+	}
+}

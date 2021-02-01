@@ -1,0 +1,37 @@
+package utilities;
+
+import java.io.File;
+import java.util.List;
+
+public class FileUtilities {
+	
+	public List<String> getInputFiles(){
+		
+		File directory = new File(Config.DELIVERY_DIRECTORY);
+        String[] inputFiles = directory.list();
+        List<String> files = null;
+        
+        if (inputFiles == null || inputFiles.length == 0) {
+            System.out.println(Mesagges.NO_INPUT_FILES);
+            return null;
+        
+        }else {
+        	
+            for (int i=0; i< inputFiles.length; i++) {
+            	
+                System.out.println(inputFiles[i]);
+                validateName(inputFiles[i]);
+            }
+        }
+        return null;
+	}
+	
+	public String validateName(String name) {
+		if(name.endsWith(".txt")) {
+			System.out.println(name.matches("/in([0-9])([0-9])/gm"));
+			System.out.println("Esta bien");
+		}
+		return "";
+	}
+
+}

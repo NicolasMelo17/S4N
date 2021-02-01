@@ -1,0 +1,10 @@
+package sucorrientazo.positions;
+
+import java.util.List;
+
+import sucorrientazo.delivery.Delivery;
+import sucorrientazo.position.Position;
+
+public interface IPositions {
+	public List<Position> updatePosition(List<Delivery> deliveries);
+}

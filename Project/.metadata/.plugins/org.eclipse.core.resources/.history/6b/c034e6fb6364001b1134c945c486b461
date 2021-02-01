@@ -1,0 +1,62 @@
+package sucorrientazo.corrientazo.positions;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.junit.Test;
+
+import junit.framework.TestCase;
+import sucorrientazo.delivery.Delivery;
+import sucorrientazo.exceptions.MovementException;
+import sucorrientazo.movement.Movement;
+import sucorrientazo.positions.Positions;
+
+public class PositionsTests extends TestCase {
+	
+	@Test
+	public void PositionsTest() {
+		
+		Map<String, List<Delivery>> deliveries = new HashMap<String, List<Delivery>>();
+		List<Delivery> deliveries1 = new ArrayList();
+		List<Movement> moves1 = new ArrayList(); 
+		moves1.add(Movement.A);
+		moves1.add(Movement.A);
+		moves1.add(Movement.D);
+		moves1.add(Movement.A);
+		
+		Delivery del1 = new Delivery(moves1);
+		
+		List<Movement> moves2 = new ArrayList(); 
+		moves1.add(Movement.D);
+		moves1.add(Movement.A);
+		moves1.add(Movement.A);
+		moves1.add(Movement.A);
+		
+		Delivery del2 = new Delivery(moves1);
+		
+		deliveries1.add(del1);
+		//deliveries1.add(del2);
+		
+		deliveries.put("01", deliveries1);
+		
+		
+		Map<String, List<String>> positions = new HashMap<String, List<String>>();
+		Map<String, List<String>> result = new HashMap<String, List<String>>();
+		String st1="(1, 2) dirección Oriente";
+		List<String> sl = new ArrayList();
+		sl.add(st1);
+		positions.put("01", sl);
+		Positions position = new Positions();
+		try {
+			result = position.updatePosition(deliveries);
+		} catch (MovementException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		assertEquals(positions, result);
+		
+	}
+
+}

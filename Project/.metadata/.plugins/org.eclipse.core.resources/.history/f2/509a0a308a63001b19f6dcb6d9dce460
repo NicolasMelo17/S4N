@@ -1,0 +1,7 @@
+package FileProcesor;
+
+public interface IDelivery {
+	
+	public void getDeliveries();
+
+}

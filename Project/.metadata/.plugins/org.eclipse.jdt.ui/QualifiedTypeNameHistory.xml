@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="FileProcesor.Delivery"/>
+<fullyQualifiedTypeName name="FileProcesor.IDelivery"/>
+<fullyQualifiedTypeName name="sucorrientazo.fileprocesor.IDelivery"/>
+<fullyQualifiedTypeName name="utilities.config"/>
+<fullyQualifiedTypeName name="utilities.FileUtilities"/>
+<fullyQualifiedTypeName name="java.util.regex.Pattern"/>
+<fullyQualifiedTypeName name="java.util.regex.Matcher"/>
+<fullyQualifiedTypeName name="sucorrientazo.movements.Movement"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="java.io.FileReader"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="utilities.Mesagges"/>
+<fullyQualifiedTypeName name="sucorrientazo.positions.IPositions"/>
+<fullyQualifiedTypeName name="sucorrientazo.drones.Drone"/>
+<fullyQualifiedTypeName name="sucorrientazo.reports.Report"/>
+<fullyQualifiedTypeName name="sucorrientazo.reports.IReport"/>
+<fullyQualifiedTypeName name="utilities.Config"/>
+<fullyQualifiedTypeName name="utilities.Messages"/>
+<fullyQualifiedTypeName name="sucorrientazo.position.Position"/>
+<fullyQualifiedTypeName name="java.io.BufferedWriter"/>
+<fullyQualifiedTypeName name="java.io.FileWriter"/>
+<fullyQualifiedTypeName name="sucorrientazo.exceptions.FileException"/>
+<fullyQualifiedTypeName name="java.util.logging.Logger"/>
+<fullyQualifiedTypeName name="java.util.logging.Level"/>
+<fullyQualifiedTypeName name="sucorrientazo.exceptions.MovementException"/>
+<fullyQualifiedTypeName name="sucorrientazo.positions.Positions"/>
+<fullyQualifiedTypeName name="sucorrientazo.movement.Movement"/>
+<fullyQualifiedTypeName name="sucorrientazo.movement.Direction"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="sucorrientazo.utilities.FileUtilities"/>
+<fullyQualifiedTypeName name="sucorrientazo.delivery.Delivery"/>
+<fullyQualifiedTypeName name="sucorrientazo.deliveries.Deliveries"/>
+</qualifiedTypeNameHistroy>

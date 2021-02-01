@@ -1,0 +1,18 @@
+package sucorrientazo.reports;
+
+import java.util.List;
+
+import sucorrientazo.drones.DronePosition;
+import sucorrientazo.position.Position;
+
+public class Report implements IReport{
+
+	public void generateReports() {
+		/*for(DronePosition drone: dronesPositions) {
+			/*for(Position position: drone.getPositions()) {
+				//System.out.println("("+position.getX()+", "+position.getY()+") dirección "+position.getDirection());
+			}
+		}*/
+	}
+	
+}

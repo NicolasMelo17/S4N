@@ -1,0 +1,72 @@
+package sucorrientazo.positions;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import sucorrientazo.delivery.Delivery;
+import sucorrientazo.drones.DronePosition;
+import sucorrientazo.movement.Direction;
+import sucorrientazo.movement.Movement;
+import sucorrientazo.position.Position;
+
+public class Positions implements IPositions {
+	
+	List<DronePosition> dronesPosition;
+	public List<DronePosition> updatePosition(Map<String, List<Delivery>> deliveries) {
+		
+		//iniciatePositions(deliveries);
+		update(deliveries);
+		return null;
+	}
+	
+	public void update(Map<String, List<Delivery>> deliveries) {
+		List<Position> positions;
+		Position position;
+		dronesPosition = new ArrayList<DronePosition>();
+		for (Map.Entry<String, List<Delivery>> delivery : deliveries.entrySet()) {
+			
+			positions = new ArrayList<Position>();
+			position = new Position();
+			System.out.println("ID: "+delivery.getKey());
+			
+			for(Delivery del:delivery.getValue()) {
+				for(Movement move : del.getMovements()) {
+					System.out.println("MOVE: "+move.toString());
+					System.out.println("BAP: "+position.toString());
+					position = adjustPosition(move, position);
+					System.out.println("AAP: "+position.toString());
+					
+				}
+				positions.add(position);
+				System.out.println(delivery.getKey()+" "+position.toString());
+			}
+		    dronesPosition.add(new DronePosition(positions, delivery.getKey()));	
+		}
+		/*
+		for(DronePosition drone : dronesPosition) {
+			for(Position pos : drone.getPositions()) {
+				System.out.println(drone.getId()+pos.toString());
+			}
+		}*/
+		
+		
+	}
+	
+	public Position adjustPosition(Movement move, Position position){
+		switch(move) {
+			case A:
+				position.advance();
+				break;
+			case D:
+				position = new Position(position.getX(), position.getY(), position.toRight());
+				System.out.println("Derecha: "+position.toString());
+				break;
+			case I:
+				position = new Position(position.getX(), position.getY(), position.toLeft());
+				System.out.println("Izquierda: "+position.toString());
+				break;
+		}
+		return position;
+	}
+}

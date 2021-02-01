@@ -1,0 +1,107 @@
+package sucorrientazo.position;
+
+import sucorrientazo.movement.Direction;
+import utilities.Config;
+import utilities.Messages;
+
+public class Position {
+	
+	private int [] X;
+	private int Y;
+	private Direction direction;
+	
+	public Position() {
+		super();
+		this.X[0] = 0;
+		this.X[1] = 0;
+		this.direction = Direction.N;
+	}
+	
+	public Position(int X, int Y, Direction direction) {
+		this.X[0] = X;
+		this.x[1] = Y;
+		this.direction = direction;
+	}
+
+	public String toString() {
+		return "("+String.valueOf(X[0])+", "+String.valueOf(X[1])+") dirección "+direction.toString();
+	}
+	
+	public void advance() {
+		switch(this.direction) {
+			case N:
+				this.X[1]+=1;
+				break;
+			case E:
+				this.X[0]+=1;
+				break;
+			case S:
+				this.X[1]-=1;
+				break;
+			case W:
+				this.X[0]-=1;
+				break;
+		}
+		validatePosition();
+	}	
+	
+	public void validatePosition() {
+		if(Math.abs(X[0])>Config.STREETS || Math.abs(Y[1])>Config.STREETS) {
+			System.out.println(Messages.MAX_NUMBER_STREETS);
+		}
+	}
+	
+	public Direction toLeft() {
+		int id = this.direction.getId();
+	    if(this.direction.getId() == 1) {
+	    	id = 4;
+	    }else {
+	    	id-=1;
+	   	}
+	    return getDirectionByID(id);
+	}
+	
+	public Direction toRight() {
+		int id = this.direction.getId();
+	    if(this.direction.getId() == 4) {
+	    	id = 1;
+	    }else {
+	    	id+=1;
+	   	}
+	    return getDirectionByID(id);
+	}
+	
+	public Direction getDirectionByID(int id) {
+		switch(id) {
+	    case 1:
+	    	return Direction.N;
+	    case 2:
+	    	return Direction.E;
+	    case 3:
+	    	return Direction.S;
+	    case 4:
+	    	return Direction.W;
+	    }
+		return null;
+	}
+	
+	public Direction getDirection() {
+		return direction;
+	}
+	public int getX() {
+		return X[0];
+	}
+
+	public void setX(int x) {
+		X[0] = x;
+	}
+
+	public int getY() {
+		return X[1];
+	}
+
+	public void setY(int y) {
+		Y = y;
+	}
+	
+}

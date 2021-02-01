@@ -1,0 +1,38 @@
+package sucorrientazo.movement;
+
+public enum Direction {
+	
+	N(1,"Norte"),
+	E(2,"Oriente"),
+	S(3,"Sur"),
+    W(4,"Occidente");
+    
+    private int id;
+	private String orientation;
+    
+    Direction(int id, String orientation){
+    	this.id = id;
+        this.orientation = orientation;
+    }
+    
+    @Override
+    public String toString() {
+        return orientation;
+    }
+    
+    public void toLeft() {
+    	if(this.id == 1) {
+    		this.id = 4;
+    	}else {
+    		this.id-=this.id;
+    	}
+    }
+    
+    public void toRight() {
+    	if(this.id == 4) {
+    		this.id = 1;
+    	}else {
+    		this.id+=this.id;
+    	}
+    }
+}

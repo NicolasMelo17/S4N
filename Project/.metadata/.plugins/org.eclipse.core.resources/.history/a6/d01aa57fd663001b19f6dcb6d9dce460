@@ -1,0 +1,27 @@
+package sucorrientazo.deliveries;
+
+import java.io.File;
+import java.util.List;
+
+import sucorrientazo.movements.Movement;
+import utilities.Config;
+import utilities.Mesagges;
+import utilities.FileUtilities;
+
+public class Delivery implements IDelivery{
+	
+	public List<Movement> getDeliveries() {
+		
+		List<Movement> moves= null;
+		FileUtilities file = new FileUtilities();
+        file.getInputFiles();
+        return moves;
+	}
+	
+	public boolean filesValidator(String[] imputFiles) {
+		
+		
+		return true;
+	}
+	
+}

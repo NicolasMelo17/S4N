@@ -1,0 +1,15 @@
+package utilities;
+
+import sucorrientazo.delivery.Delivery;
+import sucorrientazo.delivery.IDeliveries;
+
+public class SuCorrientazoUtilities {
+	
+	public SuCorrientazoUtilities(){}
+    
+    public static void cargar(){
+        IDeliveries delivery = new Delivery();
+        delivery.getDeliveries();
+    }
+
+}

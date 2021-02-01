@@ -1,0 +1,5 @@
+package sucorrientazo.positions;
+
+public interface IPositions {
+	
+}

@@ -1,0 +1,14 @@
+package sucorrientazo.reports;
+
+import java.util.List;
+import java.util.Map;
+
+import sucorrientazo.position.Position;
+
+public class Report implements IReport{
+
+	public void generateReports(Map<String, List<Position>> dronesPositions) {
+		
+	}
+	
+}

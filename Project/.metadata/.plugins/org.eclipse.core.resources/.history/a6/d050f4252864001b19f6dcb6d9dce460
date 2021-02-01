@@ -1,0 +1,51 @@
+package sucorrientazo.movement;
+
+public enum Direction {
+	
+	N(1,"Norte"),
+	E(2,"Oriente"),
+	S(3,"Sur"),
+    W(4,"Occidente");
+    
+    private int id;
+	private String orientation;
+    
+    Direction(int id, String orientation){
+    	this.id = id;
+        this.orientation = orientation;
+    }
+    
+    @Override
+    public String toString() {
+        return orientation;
+    }
+    
+    public int getId() {
+    	System.out.println("AAA"+this.id);
+    	return this.id;
+    }
+    
+    public Direction toLeft(int id) {
+    	if(id == 1) {
+    		id = 4;
+    	}else {
+    		id-=id;
+    	}
+    	for(Direction e : values()) {
+            if(e.id == id) return e;
+        }
+    	return null;
+    }
+    
+    public Direction toRight(int id) {
+    	if(id == 4) {
+    		id = 1;
+    	}else {
+    		id+=id;
+    	}
+    	for(Direction e : values()) {
+            if(e.id == id) return e;
+        }
+    	return null;
+    }
+}

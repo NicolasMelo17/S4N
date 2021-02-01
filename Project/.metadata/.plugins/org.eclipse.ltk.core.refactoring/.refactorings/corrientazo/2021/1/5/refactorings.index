@@ -1,0 +1,20 @@
+1612072458442	Delete element
+1612073072902	Rename package 'FileProcesor'
+1612073754150	Rename type 'config'
+1612074556743	Move compilation units
+1612074563726	Delete element
+1612105809073	Convert local variable 'files' to field
+1612110572315	Rename type 'Mesagges'
+1612112741431	Move compilation units
+1612112794656	Rename type 'IDelivery'
+1612112804993	Move compilation unit
+1612113028461	Encapsulate field 'movements'
+1612113036711	Encapsulate field 'id'
+1612114508334	Move compilation unit
+1612114721933	Rename type 'IMovements'
+1612114731347	Rename type 'Movements'
+1612114742659	Move compilation units
+1612114746489	Delete element
+1612114800818	Rename type 'Position'
+1612135021838	Encapsulate field 'positions'
+1612135026900	Encapsulate field 'id'

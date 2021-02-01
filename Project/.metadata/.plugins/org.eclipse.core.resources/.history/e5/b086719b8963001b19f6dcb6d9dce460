@@ -1,0 +1,5 @@
+package FileProcesor;
+
+public interface IDelivery {
+
+}

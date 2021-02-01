@@ -1,0 +1,15 @@
+package sucorrientazo.position;
+
+public class Position {
+	
+	private int X;
+	private int Y;
+	private char direction;
+	
+	public Position() {
+		super();
+		this.X = 0;
+		this.Y = 0;
+		this.direction = 'N';
+	}
+}

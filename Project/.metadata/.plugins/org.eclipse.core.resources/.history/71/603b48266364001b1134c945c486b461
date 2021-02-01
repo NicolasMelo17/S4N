@@ -1,0 +1,14 @@
+package sucorrientazo.corrientazo.positions;
+
+import org.junit.Test;
+
+import junit.framework.TestCase;
+
+public class PositionsTests extends TestCase {
+	
+	@Test
+	public void Positions() {
+		Positions 
+	}
+
+}

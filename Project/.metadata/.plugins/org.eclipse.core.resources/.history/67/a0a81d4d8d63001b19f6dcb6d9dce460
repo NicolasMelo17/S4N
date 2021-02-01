@@ -1,0 +1,21 @@
+package sucorrientazo.fileprocesor;
+
+import java.io.File;
+
+public class Delivery implements IDelivery{
+
+	public void getDeliveries() {
+		File carpeta = new File("../deliveries");
+        String[] listado = carpeta.list();
+        if (listado == null || listado.length == 0) {
+            System.out.println("No hay elementos dentro de la carpeta actual");
+            return;
+        }
+        else {
+            for (int i=0; i< listado.length; i++) {
+                System.out.println(listado[i]);
+            }
+        }
+	}
+	
+}

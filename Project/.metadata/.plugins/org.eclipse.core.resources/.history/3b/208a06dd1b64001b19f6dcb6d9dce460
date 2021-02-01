@@ -1,0 +1,21 @@
+package sucorrientazo.position;
+
+import sucorrientazo.movement.Direction;
+
+public class Position {
+	
+	private int X;
+	private int Y;
+	private Direction direction;
+	
+	public Position() {
+		super();
+		this.X = 0;
+		this.Y = 0;
+		this.direction = N;
+	}
+	
+	public String toString() {
+		return String.valueOf(X)+String.valueOf(Y)+direction.toString();
+	}
+}

@@ -1,0 +1,20 @@
+package sucorrientazo.corrientazo;
+
+import static utilities.SuCorrientazoUtilities.loadDeliveries;
+import static utilities.SuCorrientazoUtilities.updatePositions;
+import static utilities.SuCorrientazoUtilities.generateReports;
+
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	try {
+    		loadDeliveries();
+        	updatePositions();
+        	generateReports();
+    	}catch(Exception e) {
+    		System.out.println("Error en la aplicación.");
+    	}
+    }
+}

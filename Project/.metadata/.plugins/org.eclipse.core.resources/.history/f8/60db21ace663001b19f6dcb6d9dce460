@@ -1,0 +1,12 @@
+package sucorrientazo.delivery;
+
+import java.util.List;
+import java.util.Map;
+
+import sucorrientazo.movements.Movement;
+
+public interface IDelivery {
+	
+	public Map<String, List<Movement[]>> getDeliveries();
+
+}

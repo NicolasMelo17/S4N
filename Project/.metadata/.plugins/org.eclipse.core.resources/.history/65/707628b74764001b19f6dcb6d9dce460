@@ -1,0 +1,55 @@
+package utilities;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import sucorrientazo.deliveries.Deliveries;
+import sucorrientazo.deliveries.IDeliveries;
+import sucorrientazo.delivery.Delivery;
+import sucorrientazo.exceptions.FileException;
+import sucorrientazo.exceptions.MovementException;
+import sucorrientazo.positions.IPositions;
+import sucorrientazo.positions.Positions;
+import sucorrientazo.reports.IReport;
+import sucorrientazo.reports.Report;
+
+public class SuCorrientazoUtilities {
+	
+	private static Map<String, List<Delivery>> deliveries;
+	private static Map<String, List<String>> positions;
+	private static Logger loggerApp;
+    
+    public static void loadDeliveries(){
+        IDeliveries delivery = new Deliveries();
+        try {
+        	deliveries = delivery.getDeliveries();
+        }catch(FileException e) {
+        	System.err.println(e.getMessage());
+        	loggerApp.log(Level.SEVERE, e.getMessage());
+        } catch (IOException e) {
+        	loggerApp.log(Level.SEVERE, e.getMessage());
+		} catch (MovementException e) {
+			loggerApp.log(Level.SEVERE, e.getMessage());
+		}
+        
+    }
+    
+    public static void updatePositions() {
+    	IPositions position = new Positions();
+    	positions = position.updatePosition(deliveries);
+    	
+    }
+    
+    public static void generateReports() {
+    	IReport reports = new Report();
+    	try {
+			reports.generateReports(positions);
+		} catch (IOException e) {
+			loggerApp.log(Level.SEVERE, e.getMessage());
+		}
+    }
+
+}

@@ -1,0 +1,5 @@
+package sucorrientazo.exceptions;
+
+public class FileException {
+
+}

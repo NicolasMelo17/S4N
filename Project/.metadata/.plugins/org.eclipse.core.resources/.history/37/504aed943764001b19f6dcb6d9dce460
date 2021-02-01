@@ -1,0 +1,11 @@
+package sucorrientazo.reports;
+
+import java.util.List;
+
+import sucorrientazo.drones.DronePosition;
+
+public interface IReport {
+	
+	public void generateReports();
+
+}

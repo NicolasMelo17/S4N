@@ -1,0 +1,37 @@
+package sucorrientazo.delivery;
+
+import java.util.List;
+
+import sucorrientazo.movement.Movement;
+
+public class Delivery{
+	
+	private List<Movement> movements;
+	private String id;
+	
+	
+	public Delivery(List<Movement> movements, String id) {
+		super();
+		this.movements = movements;
+		this.id = id;
+	}
+	
+	public List<Movement> getMovements() {
+		return movements;
+	}
+	
+	public void setMovements(List<Movement> movements) {
+		this.movements = movements;
+	}
+	
+	public String getId() {
+		return id;
+	}
+	
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	
+	
+}

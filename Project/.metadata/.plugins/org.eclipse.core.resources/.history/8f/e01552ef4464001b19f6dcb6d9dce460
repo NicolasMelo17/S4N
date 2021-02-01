@@ -1,0 +1,12 @@
+package sucorrientazo.deliveries;
+
+import java.util.List;
+import java.util.Map;
+
+import sucorrientazo.delivery.Delivery;
+
+public interface IDeliveries {
+	
+	public Map<String, List<Delivery>> getDeliveries();
+
+}

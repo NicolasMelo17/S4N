@@ -1,0 +1,20 @@
+package sucorrientazo.reports;
+
+import java.util.List;
+import java.util.Map;
+
+import sucorrientazo.position.Position;
+import utilities.Config;
+
+public class Report implements IReport{
+
+	public void generateReports(Map<String, List<Position>> dronesPositions) {
+		for (Map.Entry<String, List<Position>> position : dronesPositions.entrySet()) {
+			fileName= Config.DELIVERY_DIRECTORY+"/"+;
+			for(Position pos: position.getValue()) {
+				System.out.println("Dron: "+position.getKey()+" Posisión: "+pos.toString());
+			}	
+		}
+	}
+	
+}

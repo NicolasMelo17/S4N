@@ -1,0 +1,37 @@
+package sucorrientazo.drones;
+
+import java.util.List;
+
+import sucorrientazo.movement.Direction;
+import sucorrientazo.position.Position;
+
+public class Drone {
+	private List<Position> positions;
+	private Direction direction;
+	private String id;
+	
+	public Drone(List<Position> positions, String id, Direction direction) {
+		super();
+		this.setPositions(positions);
+		this.setId(id);
+		this.direction = direction;
+	}
+
+	public List<Position> getPositions() {
+		return positions;
+	}
+
+	public void setPositions(List<Position> positions) {
+		this.positions = positions;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	
+}

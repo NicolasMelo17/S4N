@@ -1,0 +1,5 @@
+package sucorrientazo.reports;
+
+public interface IReporte {
+
+}

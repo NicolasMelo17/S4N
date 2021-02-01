@@ -1,0 +1,75 @@
+package utilities;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import sucorrientazo.movements.Movement;
+import utilities.Config;
+
+public class FileUtilities {
+
+	public List<String> getInputFiles(){
+		
+		List<String> files = new ArrayList<String>();
+		File directory = new File(Config.DELIVERY_DIRECTORY);
+        String[] inputFiles = directory.list();
+        
+        if (inputFiles == null || inputFiles.length == 0) {
+            System.out.println(Mesagges.NO_INPUT_FILES);
+            return null;
+        
+        }else{
+            for (int i=0; i< inputFiles.length; i++) {
+                System.out.println(inputFiles[i]);
+                if(validateName(inputFiles[i])) {
+                	files.add(inputFiles[i]);
+                }
+                
+            }
+            
+            if(files.isEmpty()) {
+            	System.out.println(Mesagges.NO_INPUT_FILES);
+                return null;
+            }
+            
+            if(files.size() > Config.DRONES) {
+            	System.out.println(Mesagges.DRONES_MAX_NUM);
+                return null;
+            }
+        }
+        return files;
+	}
+	
+	public boolean validateName(String name) {
+		
+		Pattern p = Pattern.compile("in+(\\d){2}(.txt)");
+		Matcher m = p.matcher(name);
+		if(m.matches()) {
+			System.out.println("valido");
+			return true;
+		}
+		return false;
+	}
+	
+	public List<Movement> obtainMovements(String name){
+		
+		String fileName = Config.DELIVERY_DIRECTORY+"/"+name;
+		System.out.println(fileName);
+		try {
+			FileInputStream fileInputStream = new FileInputStream(fileName);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        
+		return null;
+	}
+	
+
+}

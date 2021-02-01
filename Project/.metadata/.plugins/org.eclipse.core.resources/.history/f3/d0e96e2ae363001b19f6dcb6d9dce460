@@ -1,0 +1,91 @@
+package utilities;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import utilities.Config;
+
+public class FileUtilities {
+
+	public List<String> getInputFiles(){
+		
+		List<String> files = new ArrayList<String>();
+		File directory = new File(Config.DELIVERY_DIRECTORY);
+        String[] inputFiles = directory.list();
+        
+        if (inputFiles == null || inputFiles.length == 0) {
+            System.out.println(Messages.NO_INPUT_FILES);
+        
+        }else{
+            for (int i=0; i< inputFiles.length; i++) {
+                if(validateName(inputFiles[i])) {
+                	files.add(inputFiles[i]);
+                }
+                
+            }
+            
+            if(files.isEmpty()) {
+            	System.out.println(Messages.NO_INPUT_FILES);
+            }
+            
+            if(files.size() > Config.DRONES) {
+            	System.out.println(Messages.DRONES_MAX_NUM);
+            }
+        }
+        return files;
+	}
+	
+	public boolean validateName(String name) {
+		
+		Pattern p = Pattern.compile("in+(\\d){2}(.txt)");
+		Matcher m = p.matcher(name);
+		if(m.matches()) {
+			return true;
+		}
+		return false;
+	}
+	
+	
+	@SuppressWarnings("finally")
+	public List<String> obtainLines(String fileName){
+		
+		File file = new File(fileName);
+		List<String> lines = new ArrayList<String>();
+		FileReader fr = null;
+		BufferedReader br = null;
+		
+		try {
+			
+		    fr = new FileReader(file);
+		    br = new BufferedReader(fr);
+
+
+		} catch (FileNotFoundException e) {
+		    System.out.println("No se encontro el archivo "+file.getName());
+		}
+
+		try {
+		    String line;
+		    while( ( line = br.readLine()) != null) {
+		    	lines.add(line);
+		    }
+		    fr.close();
+		    br.close();
+		} catch (IOException e) {
+		    e.printStackTrace();
+		    
+		}
+		finally {
+			return lines;
+		}
+	}
+	
+
+}

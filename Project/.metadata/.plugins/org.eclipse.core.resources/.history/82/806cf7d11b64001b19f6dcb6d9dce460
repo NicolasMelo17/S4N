@@ -1,0 +1,5 @@
+package sucorrientazo.movement;
+
+public enum Direction {
+
+}

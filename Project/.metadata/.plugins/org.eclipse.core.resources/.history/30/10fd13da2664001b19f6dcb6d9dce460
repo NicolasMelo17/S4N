@@ -1,0 +1,45 @@
+package sucorrientazo.position;
+
+import sucorrientazo.movement.Direction;
+
+public class Position {
+	
+	private int X;
+	private int Y;
+	private Direction direction;
+	
+	public Position() {
+		super();
+		this.X = 0;
+		this.Y = 0;
+		this.direction = Direction.N;
+	}
+	
+	public String toString() {
+		return String.valueOf(X)+String.valueOf(Y)+direction.toString();
+	}
+	
+	public void advance() {
+		System.out.println(this.direction);
+		switch(this.direction) {
+			case N:
+				this.X+=1;
+				break;
+			case E:
+				this.Y+=1;
+				break;
+			case S:
+				this.X-=1;
+				break;
+			case W:
+				this.Y-=1;
+				break;
+		}
+		this.direction = Direction.toLeft(this.direction.getId());
+		System.out.println(this.direction.toString());
+	}
+	
+	public Direction getDirection() {
+		return this.direction;
+	}
+}

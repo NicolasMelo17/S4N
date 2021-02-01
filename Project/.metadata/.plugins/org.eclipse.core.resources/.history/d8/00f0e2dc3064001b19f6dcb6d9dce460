@@ -1,0 +1,70 @@
+package sucorrientazo.positions;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import sucorrientazo.delivery.Delivery;
+import sucorrientazo.drones.DronePosition;
+import sucorrientazo.movement.Direction;
+import sucorrientazo.movement.Movement;
+import sucorrientazo.position.Position;
+
+public class Positions implements IPositions {
+	
+	List<DronePosition> dronesPosition;
+	public List<DronePosition> updatePosition(Map<String, List<Delivery>> deliveries) {
+		
+		//iniciatePositions(deliveries);
+		update(deliveries);
+		return null;
+	}
+	
+	public void update(Map<String, List<Delivery>> deliveries) {
+		List<Position> positions;
+		Position position;
+		dronesPosition = new ArrayList<DronePosition>();
+		for (Map.Entry<String, List<Delivery>> deliverie : deliveries.entrySet()) {
+			
+			positions = new ArrayList<Position>();
+			position = new Position();
+			
+			for(Delivery del:deliverie.getValue()) {
+				for(Movement move : del.getMovements()) {
+					position = adjustPosition(move, position);
+					
+					System.out.println(position);
+				}
+				positions.add(position);
+				System.out.println(deliverie.getKey()+" "+position.toString());
+			}
+		    dronesPosition.add(new DronePosition(positions, deliverie.getKey()));	
+		}
+		/*
+		for(DronePosition drone : dronesPosition) {
+			for(Position pos : drone.getPositions()) {
+				System.out.println(drone.getId()+pos.toString());
+			}
+		}*/
+		
+		
+	}
+	
+	public Position adjustPosition(Movement move, Position position){
+		Direction direction;
+		switch(move) {
+			case A:
+				position.advance();
+				break;
+			case D:
+				position = new Position(position.getX(), position.getY(), position.toLeft());
+				//position.getDirection().toRight();
+				break;
+			case I:
+				position.advance();
+				//position.getDirection().toLeft();
+				break;
+		}
+		return position;
+	}
+}

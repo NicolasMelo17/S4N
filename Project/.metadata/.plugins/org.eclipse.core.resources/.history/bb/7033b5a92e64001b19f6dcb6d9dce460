@@ -1,0 +1,11 @@
+package sucorrientazo.positions;
+
+import java.util.List;
+import java.util.Map;
+
+import sucorrientazo.delivery.Delivery;
+import sucorrientazo.drones.Drone;
+
+public interface IPositions {
+	public List<Drone> updatePosition(Map<String, List<Delivery>> deliveries);
+}

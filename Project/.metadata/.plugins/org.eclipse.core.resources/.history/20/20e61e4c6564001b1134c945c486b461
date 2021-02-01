@@ -1,0 +1,28 @@
+package sucorrientazo.corrientazo.positions;
+
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+import sucorrientazo.exceptions.MovementException;
+import sucorrientazo.movement.Direction;
+import sucorrientazo.movement.Movement;
+import sucorrientazo.position.Position;
+import sucorrientazo.positions.Positions;
+
+public class PositionsTests extends TestCase {
+	
+	
+	public void PositionsTest() {
+		
+		Positions position = new Positions();
+		Position result = null;
+		try {
+			result = position.adjustPosition(Movement.A, new Position(0,0,Direction.N));
+		} catch (MovementException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		assertEquals(new Position(0,1,Direction.N), result);
+	}
+
+}

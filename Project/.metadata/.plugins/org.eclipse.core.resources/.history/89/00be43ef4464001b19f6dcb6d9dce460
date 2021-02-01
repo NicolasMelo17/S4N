@@ -1,0 +1,36 @@
+package utilities;
+
+import java.util.List;
+import java.util.Map;
+
+import sucorrientazo.deliveries.Deliveries;
+import sucorrientazo.deliveries.IDeliveries;
+import sucorrientazo.delivery.Delivery;
+import sucorrientazo.positions.IPositions;
+import sucorrientazo.positions.Positions;
+import sucorrientazo.reports.IReport;
+import sucorrientazo.reports.Report;
+
+public class SuCorrientazoUtilities {
+	
+	private static Map<String, List<Delivery>> deliveries;
+	private static Map<String, List<String>> positions;
+    
+    public static void loadDeliveries(){
+        IDeliveries delivery = new Deliveries();
+        deliveries = delivery.getDeliveries();
+        
+    }
+    
+    public static void updatePositions() {
+    	IPositions position = new Positions();
+    	positions = position.updatePosition(deliveries);
+    	
+    }
+    
+    public static void generateReports() {
+    	IReport reports = new Report();
+    	reports.generateReports(positions);
+    }
+
+}

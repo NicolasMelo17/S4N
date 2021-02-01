@@ -1,0 +1,24 @@
+package sucorrientazo.corrientazo;
+
+import static utilities.SuCorrientazoUtilities.loadDeliveries;
+import static utilities.SuCorrientazoUtilities.updatePositions;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static utilities.SuCorrientazoUtilities.generateReports;
+
+public class App 
+{
+	private static Logger loggerApp;
+    public static void main( String[] args )
+    {
+    	try {
+    		loadDeliveries();
+    		updatePositions();
+    		generateReports();
+    	}catch(Exception e) {
+    		loggerApp.log(Level.SEVERE, e.getMessage());
+    	}
+    }
+}

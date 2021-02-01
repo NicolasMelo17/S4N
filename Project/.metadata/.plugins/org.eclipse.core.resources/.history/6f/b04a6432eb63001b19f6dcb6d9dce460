@@ -1,0 +1,26 @@
+package utilities;
+
+import java.util.List;
+
+import sucorrientazo.deliveries.Deliveries;
+import sucorrientazo.deliveries.IDeliveries;
+import sucorrientazo.delivery.Delivery;
+
+public class SuCorrientazoUtilities {
+	
+	static List<Delivery> deliveries;
+	public SuCorrientazoUtilities(){}
+    
+    public static void loadDeliveries(){
+        IDeliveries delivery = new Deliveries();
+        deliveries = delivery.getDeliveries();
+        for(Delivery deliver: deliveries) {
+        	System.out.println(deliver.getId()+deliver.getMovements().toString());
+        }
+    }
+    
+    public static void updateDeliveries() {
+    	IMovements moves = 
+    }
+
+}

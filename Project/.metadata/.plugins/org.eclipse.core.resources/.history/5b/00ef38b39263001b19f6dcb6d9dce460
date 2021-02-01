@@ -1,0 +1,31 @@
+package sucorrientazo.deliveries;
+
+import java.io.File;
+import utilities.Config;
+import utilities.Mesagges;
+
+public class Delivery implements IDelivery{
+
+	public void getDeliveries() {
+		File directory = new File(Config.DELIVERY_DIRECTORY);
+        String[] imputFiles = directory.list();
+        if (imputFiles == null || imputFiles.length == 0) {
+            System.out.println(Mesagges.NO_INPUT_FILES);
+            return;
+        } else if(imputFiles.length> Config.DRONES ) {
+        	System.out.println(Mesagges.NO_INPUT_FILES);
+        	
+        }else {
+            for (int i=0; i< imputFiles.length; i++) {
+                System.out.println(imputFiles[i]);
+            }
+        }
+	}
+	
+	public boolean filesValidator(String[] imputFiles) {
+		
+		
+		return true;
+	}
+	
+}

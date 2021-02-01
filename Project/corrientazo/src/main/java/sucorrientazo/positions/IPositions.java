@@ -1,0 +1,12 @@
+package sucorrientazo.positions;
+
+import java.util.List;
+import java.util.Map;
+
+import sucorrientazo.delivery.Delivery;
+import sucorrientazo.exceptions.MovementException;
+import sucorrientazo.position.Position;
+
+public interface IPositions {
+	public Map<String, List<Position>> updatePosition(Map<String, List<Delivery>> deliveries) throws MovementException;
+}

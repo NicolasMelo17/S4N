@@ -1,0 +1,55 @@
+package sucorrientazo.corrientazo;
+
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+import sucorrientazo.utilities.FileUtilities;
+
+/**
+ * Unit test for simple App.
+ */
+public class FileTest 
+    extends TestCase
+{
+    /**
+     * Create the test case
+     *
+     * @param testName name of the test case
+     */
+    public FileTest( String testName )
+    {
+        super( testName );
+    }
+
+    /**
+     * @return the suite of tests being tested
+     */
+    public static Test suite()
+    {
+        return new TestSuite( FileTest.class );
+    }
+
+    /**
+     * Rigourous Test :-)
+     */
+    public void testNameValidatorWrong()
+    {
+    	FileUtilities file = new FileUtilities();
+    	boolean result = file.validateName("ias121.ex");
+        assertFalse( result );
+    }
+    
+    public void testNameValidatorDigits()
+    {
+    	FileUtilities file = new FileUtilities();
+    	boolean result = file.validateName("in121.txt");
+        assertFalse( result );
+    }
+    
+    public void testNameValidatorGood()
+    {
+    	FileUtilities file = new FileUtilities();
+    	boolean result = file.validateName("in05.txt");
+        assertTrue( result );
+    }
+}

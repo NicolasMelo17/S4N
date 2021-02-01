@@ -11,7 +11,6 @@ import sucorrientazo.deliveries.IDeliveries;
 import sucorrientazo.delivery.Delivery;
 import sucorrientazo.exceptions.FileException;
 import sucorrientazo.exceptions.MovementException;
-import sucorrientazo.position.Position;
 import sucorrientazo.positions.IPositions;
 import sucorrientazo.positions.Positions;
 import sucorrientazo.reports.IReport;
@@ -20,7 +19,7 @@ import sucorrientazo.reports.Report;
 public class SuCorrientazo {
 	
 	private static Map<String, List<Delivery>> deliveries;
-	private static Map<String, List<Position>> positions;
+	private static Map<String, List<String>> positions;
 	private static Logger loggerApp;
     
     public static void loadDeliveries(){

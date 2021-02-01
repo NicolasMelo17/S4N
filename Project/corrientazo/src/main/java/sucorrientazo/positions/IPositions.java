@@ -5,8 +5,7 @@ import java.util.Map;
 
 import sucorrientazo.delivery.Delivery;
 import sucorrientazo.exceptions.MovementException;
-import sucorrientazo.position.Position;
 
 public interface IPositions {
-	public Map<String, List<Position>> updatePosition(Map<String, List<Delivery>> deliveries) throws MovementException;
+	public Map<String, List<String>> updatePosition(Map<String, List<Delivery>> deliveries) throws MovementException;
 }

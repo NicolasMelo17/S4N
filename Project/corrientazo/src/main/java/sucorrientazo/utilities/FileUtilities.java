@@ -13,7 +13,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import sucorrientazo.exceptions.FileException;
-import sucorrientazo.position.Position;
 import sucorrientazo.utilities.Config;
 
 public class FileUtilities {
@@ -81,15 +80,15 @@ public class FileUtilities {
 		
 	}
 	
-	public void generateReport(String fileName, List<Position> positions) throws IOException {
+	public void generateReport(String fileName, List<String> positions) throws IOException {
 		File file = new File(fileName);
 		BufferedWriter bw = null;
 		String linea="";
 		bw = new BufferedWriter(new FileWriter(file));
 		bw.write(Config.TITLE_REPORT);
 		bw.newLine();
-		for(Position line:positions){
-			linea = line.toString();
+		for(String line:positions){
+			linea = line;
 			bw.write(linea);
 			bw.newLine();
 		}

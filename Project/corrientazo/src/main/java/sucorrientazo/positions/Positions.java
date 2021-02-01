@@ -12,20 +12,20 @@ import sucorrientazo.position.Position;
 
 public class Positions implements IPositions {
 	
-	public Map<String, List<Position>> updatePosition(Map<String, List<Delivery>> deliveries) throws MovementException {
-		List<Position> positions;
+	public Map<String, List<String>> updatePosition(Map<String, List<Delivery>> deliveries) throws MovementException {
+		List<String> positions;
 		Position position;
-		Map<String, List<Position>> dronesPosition = new HashMap<String, List<Position>>();
+		Map<String, List<String>> dronesPosition = new HashMap<String, List<String>>();
 		for (Map.Entry<String, List<Delivery>> delivery : deliveries.entrySet()) {
 			
-			positions = new ArrayList<Position>();
+			positions = new ArrayList<String>();
 			position = new Position();
 			
 			for(Delivery del:delivery.getValue()) {
 				for(Movement move : del.getMovements()) {
 					position = adjustPosition(move, position);
 				}
-				positions.add(position);
+				positions.add(position.toString());
 			}
 			
 		    dronesPosition.put(delivery.getKey(), positions);	

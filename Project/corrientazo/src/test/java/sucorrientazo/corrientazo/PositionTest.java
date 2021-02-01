@@ -92,11 +92,11 @@ public class PositionTest
 		deliveries1.add(del1);
 		deliveries.put("01", deliveries1);
 		
-		Map<String, List<Position>> positions = new HashMap<String, List<Position>>();
-		Map<String, List<Position>> result = new HashMap<String, List<Position>>();
+		Map<String, List<String>> positions = new HashMap<String, List<String>>();
+		Map<String, List<String>> result = new HashMap<String, List<String>>();
 		
-		Position st1= new Position(1,2, Direction.E);
-		List<Position> sl = new ArrayList<Position>();
+		String st1= "(1, 2) dirección Oriente";//new Position(1,2, Direction.E);
+		List<String> sl = new ArrayList<String>();
 		sl.add(st1);
 		positions.put("01", sl);
 		Positions position = new Positions();
@@ -133,12 +133,12 @@ public class PositionTest
 		deliveries1.add(del2);
 		deliveries.put("01", deliveries1);
 		
-		Map<String, List<Position>> positions = new HashMap<String, List<Position>>();
-		Map<String, List<Position>> result = new HashMap<String, List<Position>>();
+		Map<String, List<String>> positions = new HashMap<String, List<String>>();
+		Map<String, List<String>> result = new HashMap<String, List<String>>();
 		
-		Position st1 = new Position(-2,0,Direction.E);//"(2, 1) dirección Oriente";
-		Position st2 = new Position(-2,3,Direction.S);//"(4, 0) dirección Sur";
-		List<Position> sl = new ArrayList<Position>();
+		String st1 = "(-2, 0) dirección Norte";
+		String st2 = "(-2, 3) dirección Oriente";
+		List<String> sl = new ArrayList<String>();
 		sl.add(st1);
 		sl.add(st2);
 		positions.put("01", sl);
@@ -194,13 +194,13 @@ public class PositionTest
 		deliveries1.add(del3);
 		deliveries.put("01", deliveries1);
 		
-		Map<String, List<Position>> positions = new HashMap<String, List<Position>>();
-		Map<String, List<Position>> result = new HashMap<String, List<Position>>();
+		Map<String, List<String>> positions = new HashMap<String, List<String>>();
+		Map<String, List<String>> result = new HashMap<String, List<String>>();
 		
-		Position st1=new Position(-2,4,Direction.N);//"(-2, 4) dirección Norte"
-		Position st2=new Position(-3,3,Direction.N);//"(-3, 3) dirección Sur"
-		Position st3=new Position(-4,2,Direction.N);//"(-4, 2) dirección Oriente"
-		List<Position> sl = new ArrayList<Position>();
+		String st1="(-2, 4) dirección Occidente";
+		String st2="(-1, 3) dirección Sur";
+		String st3="(0, 0) dirección Occidente";
+		List<String> sl = new ArrayList<String>();
 		sl.add(st1);
 		sl.add(st2);
 		sl.add(st3);

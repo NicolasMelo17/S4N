@@ -19,6 +19,10 @@ This is the repositorie for the S4N backend test. It contains the app that give 
 
 ### Release History
 
+* V.1.0
+    * CHANGE: Basic version
+* v.1.1
+    * CHANGE: Bug Correction from unit test v1.0
 
 ### Notes
 

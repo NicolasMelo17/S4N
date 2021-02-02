@@ -31,7 +31,7 @@ This is the repositorie for the S4N backend test. It contains the app that give 
 * Tha app check the maximun range for drones
 * The app check the number of deliveries for each drone
 
-## Tecnical information
+## Technical information
 
 This app whats created using maven as the build System, and JUnit for unit test.
 

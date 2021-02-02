@@ -197,9 +197,9 @@ public class PositionTest
 		Map<String, List<String>> positions = new HashMap<String, List<String>>();
 		Map<String, List<String>> result = new HashMap<String, List<String>>();
 		
-		String st1="(-2, 4) dirección Occidente";
-		String st2="(-1, 3) dirección Sur";
-		String st3="(0, 0) dirección Occidente";
+		String st1="(-2, 4) dirección Norte";
+		String st2="(-3, 3) dirección Sur";
+		String st3="(-4, 2) dirección Oriente";
 		List<String> sl = new ArrayList<String>();
 		sl.add(st1);
 		sl.add(st2);
